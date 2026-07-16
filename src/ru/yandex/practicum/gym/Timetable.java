@@ -11,7 +11,7 @@ public class Timetable {
         TimeOfDay timeOfDay = trainingSession.getTimeOfDay();
         TreeMap<TimeOfDay, List<TrainingSession>> daysTable = timetable.get(day);
         if (daysTable == null) {
-            daysTable= new TreeMap<>();
+            daysTable = new TreeMap<>();
             timetable.put(day, daysTable);
         }
 
@@ -24,12 +24,11 @@ public class Timetable {
         trainingSessions.add(trainingSession);
     }
 
-    public  List<TrainingSession> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
+    public List<TrainingSession> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
         TreeMap<TimeOfDay, List<TrainingSession>> sortedTimetable = timetable.get(dayOfWeek);
-        if(sortedTimetable==null){
+        if (sortedTimetable == null) {
             return Collections.emptyList();
-        }
-        else {
+        } else {
             List<TrainingSession> trainingSessionList = new ArrayList<>();
             for (List<TrainingSession> sessions : sortedTimetable.values()) {
                 trainingSessionList.addAll(sessions);
@@ -41,20 +40,19 @@ public class Timetable {
 
     public List<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         TreeMap<TimeOfDay, List<TrainingSession>> sortedTimetable = timetable.get(dayOfWeek);
-        if(sortedTimetable==null){
+        if (sortedTimetable == null) {
             return Collections.emptyList();
-        }
-        else {
+        } else {
             return sortedTimetable.get(timeOfDay);
         }
     }
 
-    public Long getCountByCoaches1(Coach coach){
-       long count =0;
+    public Long getCountByCoaches1(Coach coach) {
+        long count = 0;
 
-        for(TreeMap<TimeOfDay, List<TrainingSession>> dayTable : timetable.values()){
-            for (List<TrainingSession> trainingSessions : dayTable.values()){
-                for(TrainingSession session : trainingSessions){
+        for (TreeMap<TimeOfDay, List<TrainingSession>> dayTable : timetable.values()) {
+            for (List<TrainingSession> trainingSessions : dayTable.values()) {
+                for (TrainingSession session : trainingSessions) {
                     if (session.getCoach().equals(coach)) {
                         count++;
                     }
