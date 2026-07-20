@@ -174,11 +174,11 @@ public class TimetableTest {
 
         System.out.println("Список тренеров и их количества занятий:" + timetable.getCountByCoaches());
 
-        Long coach1ListQuantity = timetable.getCountByCoaches1(coach1);
+        Long coach1ListQuantity = timetable.getCountByCoach(coach1);
         assertEquals(1, coach1ListQuantity);
-        Long coach2ListQuantity = timetable.getCountByCoaches1(coach2);
+        Long coach2ListQuantity = timetable.getCountByCoach(coach2);
         assertEquals(2, coach2ListQuantity);
-        Long coach3ListQuantity = timetable.getCountByCoaches1(coach3);
+        Long coach3ListQuantity = timetable.getCountByCoach(coach3);
         assertEquals(3, coach3ListQuantity);
 
     }

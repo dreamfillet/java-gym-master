@@ -47,7 +47,7 @@ public class Timetable {
         }
     }
 
-    public Long getCountByCoaches1(Coach coach) {
+    public Long getCountByCoach(Coach coach) {
         long count = 0;
 
         for (TreeMap<TimeOfDay, List<TrainingSession>> dayTable : timetable.values()) {
@@ -83,11 +83,5 @@ public class Timetable {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Расписание {" +
-                "Расписание =" + timetable +
-                '}';
-    }
 }
 
